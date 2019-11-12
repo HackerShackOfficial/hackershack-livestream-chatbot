@@ -1,0 +1,69 @@
+<!-- index.html -->
+<html>
+  <head></head>
+  <body>
+    <div>
+    	<div id="author"></div>
+		<img id="meme" style="width: 300px; height: 300px; object-fit: contain;" src=""></img>
+	</div>
+  </body>
+  <script type="text/javascript">
+
+	function fade(element) {
+	    var op = 1;  // initial opacity
+	    var timer = setInterval(function () {
+	        if (op <= 0.1){
+	            clearInterval(timer);
+	            element.style.display = 'none';
+	        }
+	        element.style.opacity = op;
+	        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+	        op -= op * 0.1;
+	    }, 10);
+	}
+
+
+	function unfade(element) {
+	    var op = 0.1;  // initial opacity
+	    element.style.display = 'block';
+	    var timer = setInterval(function () {
+	        if (op >= 1){
+	            clearInterval(timer);
+	        }
+	        element.style.opacity = op;
+	        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+	        op += op * 0.1;
+	    }, 10);
+	}
+
+	var img = document.getElementById('meme')
+	var transparent_pixel = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+	img.src = transparent_pixel
+
+	img.onload = function () {
+        unfade(img)
+
+		setTimeout(function() {
+        	fade(img);
+    	}, 20000)		
+    };
+
+	setInterval(function(){ 
+		fetch('/data/meme')
+		.then(function(resp) {
+			if (resp.status === 404) {
+				throw new Error('No memes found')
+			} else {
+				return resp.text()
+			}
+		})
+		.then(function(text) {
+			img.src = text
+		})
+		.catch(function(err) {
+			console.log(err)
+		})
+	}, 23000);
+  	
+  </script>
+</html>

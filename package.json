@@ -1,0 +1,19 @@
+{
+  "name": "twitch-chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multi-stream-chatbot": "github:HackerShackOfficial/multi-stream-chatbot",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretty": "prettier --write \"src/**/*.js\""
+  },
+  "author": "",
+  "license": "ISC"
+}
