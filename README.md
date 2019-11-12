@@ -15,9 +15,9 @@ YOUTUBE_CHAT_CLIENT_SECRET
 TWITCH_BOT_KEY
 ```
 
-You can find these values in the Twitch/Youtube chatbot documentation
+You can find these values in the Twitch/Youtube chatbot documentation.
 
-Run the following commands in the project root
+Run the following commands in the project root:
 
 ```sh
 npm install
@@ -41,5 +41,4 @@ Note:
 
 Thanks for the support!
 
- - Zachary Nawrocki: Love your videos. I've been working on a chat bot for my personal home assistant project, and these ideas have given me some inspiration. Thanks.
- 
+ - `Zachary Nawrocki`: Love your videos. I've been working on a chat bot for my personal home assistant project, and these ideas have given me some inspiration. Thanks.
