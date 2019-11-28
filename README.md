@@ -33,7 +33,7 @@ Note:
 
 ## How to use the Chatbot
 
-~WIP~
+_WIP_
 
 [Meme Viewer](https://hackershackofficial.github.io/meme-viewer.html)
 
