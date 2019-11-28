@@ -24,16 +24,16 @@ server.listen(3000, function() {
 
 const actions = registerActions(path.join(__dirname, "actions/registered"))
 
-const bot = new StreamBot({
-    streams: [new YoutubeStream(youtubeAuth), new TwitchStream(twitchAuth)],
-    actions,
-    config
-})
-
 // const bot = new StreamBot({
-// 	streams: [new DummyStream('!meme | Success kid | Parallel charging | works!')],
-// 	actions,
-// 	config
+//     streams: [new YoutubeStream(youtubeAuth), new TwitchStream(twitchAuth)],
+//     actions,
+//     config
 // })
+
+const bot = new StreamBot({
+	streams: [new DummyStream('!dice')],
+	actions,
+	config
+})
 
 bot.start()

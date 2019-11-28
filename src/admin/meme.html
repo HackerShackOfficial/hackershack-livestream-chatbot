@@ -1,10 +1,32 @@
 <!-- index.html -->
 <html>
-  <head></head>
+  <head>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.min.js"></script>
+  	<style type="text/css">
+  		#author {
+            font-family: "Arial Black", Gadget, sans-serif;
+			color: white;
+			text-shadow:
+                2px 2px 0 #000,
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+                margin-bottom: 4px;
+                margin-top: 4px;
+  		}
+
+        #meme {
+            width: 300px; 
+            height: 300px; 
+            object-fit: contain;
+        }
+  	</style>
+  </head>
   <body>
     <div>
-    	<div id="author"></div>
-		<img id="meme" style="width: 300px; height: 300px; object-fit: contain;" src=""></img>
+    	<h2 id="author"></h2>
+		<img id="meme" src=""></img>
 	</div>
   </body>
   <script type="text/javascript">
@@ -37,14 +59,17 @@
 	}
 
 	var img = document.getElementById('meme')
+	var author = document.getElementById('author')
 	var transparent_pixel = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
 	img.src = transparent_pixel
 
 	img.onload = function () {
         unfade(img)
+        unfade(author)
 
 		setTimeout(function() {
         	fade(img);
+        	fade(author)
     	}, 20000)		
     };
 
@@ -54,11 +79,12 @@
 			if (resp.status === 404) {
 				throw new Error('No memes found')
 			} else {
-				return resp.text()
+				return resp.json()
 			}
 		})
-		.then(function(text) {
-			img.src = text
+		.then(function(json) {
+			img.src = json.url
+			author.innerHTML = DOMPurify.sanitize(json.author)
 		})
 		.catch(function(err) {
 			console.log(err)

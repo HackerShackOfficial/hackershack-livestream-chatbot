@@ -20,6 +20,8 @@ class ShowMemeAction extends AbstractSimpleChatAction {
         // 	return "Sorry, you need to make a $2.00 superchat to perform that action :/"
         // }
 
+        const username = (ctx.author && ctx.author.displayName) || "(Unknown user)"
+
         const commandParts = message.split("|")
         const memeName = commandParts[1].trim()
         const memeID = await this.getMemeID(memeName)
@@ -37,7 +39,7 @@ class ShowMemeAction extends AbstractSimpleChatAction {
         )
         const json = await resp.json()
 
-        messageBus.queue("ShowMemeAction", json.data.url)
+        messageBus.queue("ShowMemeAction", {"url": json.data.url, "author": username})
         return "Thanks for creating that meme! I'll post it now :)"
     }
 
