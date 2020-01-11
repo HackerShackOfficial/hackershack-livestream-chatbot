@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "express": "^4.17.1",
-    "multi-stream-chatbot": "github:HackerShackOfficial/multi-stream-chatbot",
-    "node-fetch": "^2.6.0"
+    "express": "~4.17.1",
+    "multi-stream-chatbot": "~1.0.0",
+    "node-fetch": "~2.6.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
