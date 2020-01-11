@@ -33,9 +33,49 @@ Note:
 
 ## How to use the Chatbot
 
-_WIP_
+Type the following commands to talk to the bot:
 
-[Meme Viewer](https://hackershackofficial.github.io/meme-viewer.html)
+### Memes
+
+#### Create a meme
+Meme names can be found [here](https://hackershackofficial.github.io/meme-viewer.html)
+
+Type: `!meme | meme_name | top_text | bottom_text`
+
+Example -  `!meme | success kid | this | works!`
+
+#### Show a meme on the livestream video
+(Uses the same memes as the create meme command)
+
+Type: `!sm | meme_name | top_text | bottom_text`
+
+Example -  `!sm | success kid | this | works!`
+
+### Polls
+
+#### Create a poll
+
+`!makepoll | poll_question | option_1 | option_2`
+
+#### Vote for an option in the poll
+
+`!vote | option_1`
+
+#### End the current poll
+
+`!endpoll`
+
+#### View the poll and current options
+
+`!viewpoll`
+
+### Get all HackerShack social media links
+
+Type: `!links`
+
+### Roll a dice
+
+Type: `!dice`
 
 ## Donations
 
